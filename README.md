@@ -1,4 +1,3 @@
-# Programming with Mati: KqlDB
 
 # Running Locally
 We're deploying the following components with Docker compose:
