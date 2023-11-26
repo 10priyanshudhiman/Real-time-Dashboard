@@ -1,5 +1,5 @@
 ---
-version: '3'
+version: "3"
 
 services:
   zookeeper:
@@ -22,7 +22,7 @@ services:
       - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:32181'
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:32181"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -35,10 +35,10 @@ services:
     depends_on:
       - kafka
     hostname: kafka-create-topics
-    command: ["bash", "./create-topics.sh"]
+    command: ["/bin/sh", "-c", "./create-topics.sh"]
     working_dir: /scripts
     volumes:
-    - ./scripts:/scripts
+      - ./scripts:/scripts
 
   ksqldb-server:
     image: confluentinc/ksqldb-server:0.14.0
@@ -64,7 +64,3 @@ services:
       - ksqldb-server
     entrypoint: /bin/sh
     tty: true
-
-
-
-
