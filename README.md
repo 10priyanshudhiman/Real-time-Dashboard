@@ -202,6 +202,7 @@ on log you see output of different threadId running different consumers for veri
 ## 5 | client side
 
 For client side to actively listen for the events emitted by the backend I used socket-io-client libraby for reactJs and react-router-dom for different routes
+Every Route Running is independent as backend is running ondifferent thread and emittin events and client side consumer consumes and runs independently achieving multi thread architecture.
 
 For the Dashboar Part I did not use Bootstrap as i used Pure CSS to code every component
 for charts i used recharts library
@@ -258,3 +259,12 @@ Once you're finished, tear everything down using the following command:
 ```sh
 docker-compose down
 ```
+
+## 6 | Next steps
+
+For the Version2(V2) we are simply feding data to consumer what we can do is to use kafak connect which comes with confluent Kafka
+and schema registery to move data from any external sources into kafka using MYSQL or any other connectors(These are also know as PUSH Queries ). And Also to move data out from kafka to another database like Redis(These are know are pull queries ) and then consume our topics and then make more scabale and vast Real-Time-Dashboard.
+
+Furthur steps would be adding more features to the Reactjs Dashboard as it misses the search functionality where we can seacrh the data that is shown on our independent route or thread.
+
+Use more complex Json file and complex SQL queries to perform modifications accordingly and solve real world Problems
