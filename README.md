@@ -55,7 +55,8 @@ if you are on windows and not using wsl to run then you will see the following e
 ./create-topics.sh: line 2: $'\r': command not found
 to resolve this either use this :-
 
-```dos2unix filename
+```
+dos2unix filename
 
 ```
 
