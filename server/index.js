@@ -16,7 +16,12 @@ http.listen(socketio_port, function () {
   console.log("listening on *:" + socketio_port);
 });
 
-const kafkaTopics = ["TRUCK-SENSORS", "TRUCK-1-SENSORS"]; // Add your Kafka topics here
+const kafkaTopics = [
+  "TRUCK-SENSORS",
+  "TRUCK-1-SENSORS",
+  "TRUCK-2-SENSORS",
+  "TRUCK-3-SENSORS",
+]; // Add your Kafka topics here
 
 for (const topic of kafkaTopics) {
   const worker = new Worker("./kafkaConsumerWorker.js", {

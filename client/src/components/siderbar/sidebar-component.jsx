@@ -1,6 +1,7 @@
 // Import necessary libraries
 import React from "react";
 import "./sidebar-component.css";
+import { Link } from "react-router-dom";
 import {
   BsCart3,
   BsGrid1X2Fill,
@@ -27,41 +28,41 @@ const Sidebar = ({ openSidebarToggle, OpenSidebar }) => {
         </span>
       </div>
       <ul className="sidebar-list">
-        <li className="sidebar-list-item">
-          <a href="">
+        <Link to="/" className="sidebar-link">
+          <li className="sidebar-list-item">
             <BsGrid1X2Fill className="icon" /> Dashboard
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsFillArchiveFill className="icon" /> Products
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsFillGrid3X3GapFill className="icon" /> Categories
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsPeopleFill className="icon" /> Customers
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
+          </li>
+        </Link>
+        <Link to="/truck1" className="sidebar-link">
+          <li className="sidebar-list-item">
+            <BsFillArchiveFill className="icon" /> TRUCK-1
+          </li>
+        </Link>
+        <Link to="/truck2" className="sidebar-link">
+          <li className="sidebar-list-item">
+            <BsFillGrid3X3GapFill className="icon" /> TRCUK-2
+          </li>
+        </Link>
+        <Link to="/truck3" className="sidebar-link">
+          <li className="sidebar-list-item">
+            <BsPeopleFill className="icon" /> TRUCK-3
+          </li>
+        </Link>
+        <Link to="/inventory" className="sidebar-link">
+          <li className="sidebar-list-item">
             <BsListCheck className="icon" /> Inventory
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
+          </li>
+        </Link>
+        <Link to="/reports" className="sidebar-link">
+          <li className="sidebar-list-item">
             <BsMenuButtonWideFill className="icon" /> Reports
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
+          </li>
+        </Link>
+        <Link to="/settings" className="sidebar-link">
+          <li className="sidebar-list-item">
             <BsFillGearFill className="icon" /> Settings
-          </a>
-        </li>
+          </li>
+        </Link>
       </ul>
     </aside>
   );

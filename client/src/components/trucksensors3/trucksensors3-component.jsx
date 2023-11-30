@@ -1,6 +1,6 @@
 // Import necessary libraries
 import React, { useEffect, useState } from "react";
-import "./trucksensors-component.css";
+import "./trucksensors3-component.css";
 import {
   BarChart,
   Bar,
@@ -24,14 +24,15 @@ import {
 
 import io from "socket.io-client";
 
-const TruckSensors = () => {
+const TruckSensors3 = () => {
   //Define state to store received data
   const [data, setData] = useState(() => {
     // Initialize state from localStorage on component mount
-    const storedData = localStorage.getItem("truckSensorsData");
+    const storedData = localStorage.getItem("truckSensors3Data");
     try {
       // Try parsing the stored data as JSON
       const parsedData = JSON.parse(storedData);
+
       // Check if the parsed data is an array
       if (Array.isArray(parsedData)) {
         return parsedData; // If it's an array, use it as is
@@ -50,19 +51,17 @@ const TruckSensors = () => {
 
   // Listen for 'TRUCK-3-SENSORS' event
   useEffect(() => {
-    const handleTruckSensorsEvent = (receivedData, topic) => {
+    const handleTruckSensorsEvent = (receivedData) => {
       const modifiedData = JSON.parse(receivedData.msg.value);
       setData((prevData) => {
         const newData = [...prevData, modifiedData];
         // Store updated data in localStorage
-        localStorage.setItem("truckSensorsData", JSON.stringify(newData));
+        localStorage.setItem("truckSensors3Data", JSON.stringify(newData));
         return newData;
       });
     };
-
-    socket.on("TRUCK-SENSORS", handleTruckSensorsEvent);
-
-    return () => socket.off("TRUCK-SENSORS", handleTruckSensorsEvent);
+    socket.on("TRUCK-3-SENSORS", handleTruckSensorsEvent);
+    return () => socket.off("TRUCK-3-SENSORS", handleTruckSensorsEvent);
   }, [socket]); // Empty dependency array ensures the effect runs once on mount
 
   return (
@@ -119,17 +118,17 @@ const TruckSensors = () => {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="truck_id" />
+            <XAxis dataKey="READTIME" />
             <YAxis />
             <Tooltip />
             <Legend />
             <Bar
-              dataKey="engine_temperature"
+              dataKey="ENGINE_TEMPERATURE"
               fill="#8884d8"
               activeBar={<Rectangle fill="pink" stroke="blue" />}
             />
             <Bar
-              dataKey="average_rpm"
+              dataKey="AVERAGE_RPM"
               fill="#82ca9d"
               activeBar={<Rectangle fill="gold" stroke="purple" />}
             />
@@ -149,17 +148,17 @@ const TruckSensors = () => {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="truck_id" />
+            <XAxis dataKey="READTIME" />
             <YAxis />
             <Tooltip />
             <Legend />
             <Line
               type="monotone"
-              dataKey="engine_temperature"
+              dataKey="ENGINE_TEMPERATURE"
               stroke="#8884d8"
               activeDot={{ r: 8 }}
             />
-            <Line type="monotone" dataKey="average_rpm" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="AVERAGE_RPM" stroke="#82ca9d" />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -167,4 +166,4 @@ const TruckSensors = () => {
   );
 };
 
-export default TruckSensors;
+export default TruckSensors3;

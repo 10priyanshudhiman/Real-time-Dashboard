@@ -66,6 +66,11 @@
   color: #9e9ea4;
 }
 
+.sidebar-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent */
+}
+
 .sidebar-responsive {
   display: inline !important;
   position: absolute;
