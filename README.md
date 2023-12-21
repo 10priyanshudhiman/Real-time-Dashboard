@@ -1,6 +1,8 @@
 # Real-Time-Dashboard
 
 <This Project is for Version 1 (V1) There can be changes in this code >
+
+
 Here we are using Truck-Sensors Data where we are measuring the Truck data that comes to our kafka and show results to Dasboard
 
 I am taking data from json file which we fed into consumer through script which will produce data to different topics
