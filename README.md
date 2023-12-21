@@ -265,8 +265,11 @@ docker-compose down
 
 ## 6 | Next steps
 
-For the Version2(V2) we are simply feding data to consumer what we can do is to use kafak connect which comes with confluent Kafka
-and schema registery to move data from any external sources into kafka using MYSQL or any other connectors(These are also know as PUSH Queries ). And Also to move data out from kafka to another database like Redis(These are know are pull queries ) and then consume our topics and then make more scabale and vast Real-Time-Dashboard.
+For the Version2(V2) 
+
+we are simply feding data to consumer what we can do is to use kafak connect which comes with confluent Kafka
+and schema registery to move data from any external sources into kafka using MYSQL or any other connectors(These are also know as PUSH Queries ). 
+And Also to move data out from kafka to another database like Redis(These are know are pull queries ) and then consume our topics and then make more scabale and vast Real-Time-Dashboard.
 
 Furthur steps would be adding more features to the Reactjs Dashboard as it misses the search functionality where we can seacrh the data that is shown on our independent route or thread.
 
